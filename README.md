@@ -86,3 +86,30 @@ Following responses and definitions will only show the expected value of the dat
 ```
 database/ena_bracken.sql.gz
 ```
+
+### Pipeline for processing ENA reads.
+```
+Code forked from https://github.com/EBI-COMMUNITY/ebi-glue/tree/master/BIGSI_FULL
+Refer to README for pipeline mode of action.
+```
+
+#### ENA read retrieval:
+
+```
+nextflow run ret_reads.nf -resume -with-report ret_reads_nextflow.html -with-trace ret_trace.txt -with-dag ret_reads_flowchart.png -with-timeline ret_reads_timeline.htmt
+```
+
+#### ENA read processing (cortex , unitig, sourmash)
+
+```
+nextflow run process_reads_nobloom.nf -resume -with-report process_reads_nextflow.html -with-trace process_trace.txt -with-dag process_reads_flowchart.png -with-timeline process_reads_timeline.html
+```
+
+#### ENA read processing (cortex)
+
+```
+nextflow run reads_2_CleanCortex.nf -resume -with-report reads_2_CleanCortex_nextflow.html -with-trace reads_2_CleanCortex_trace.txt -with-dag reads_2_CleanCortex_flowchart.png -with-timeline reads_2_CleanCortex_timeline.html
+
+```
+
+
